@@ -1,0 +1,25 @@
+# ศูนย์ปฏิบัติการกลุ่มจังหวัด 4 — static front end in /public, data API in netlify/functions
+[build]
+  publish = "public"
+  command = "echo 'no build step: public/ is prebuilt'"
+
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Frame-Options = "SAMEORIGIN"
+
+[[headers]]
+  for = "/index.html"
+  [headers.values]
+    Cache-Control = "no-cache"
+
+[[headers]]
+  for = "/vendor/*"
+  [headers.values]
+    Cache-Control = "no-cache"

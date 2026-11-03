@@ -1,0 +1,17 @@
+{
+  "name": "opcenter-group4",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "ศูนย์ปฏิบัติการกลุ่มจังหวัด 4 — ระบบรายงานกลุ่มจังหวัดภาคตะวันออก 2 บน Netlify",
+  "scripts": {
+    "build:client": "esbuild src/nf-client.js --bundle --format=iife --target=es2019 --minify --outfile=public/vendor/nf.js"
+  },
+  "dependencies": {
+    "@netlify/blobs": "11.1.4",
+    "@netlify/identity": "2.0.0"
+  },
+  "devDependencies": {
+    "esbuild": "0.28.2"
+  }
+}
