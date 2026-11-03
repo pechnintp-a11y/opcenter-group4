@@ -644,6 +644,50 @@ body.gated > header, body.gated > main{display:none}
 .gate-msg{font-size:.88rem;color:var(--bad-ink);min-height:1.2em}
 .gate-foot{font-size:.8rem;color:var(--muted);text-align:center;max-width:420px}
 .gate h2{font-size:1.1rem}
+
+/* ---------- office scene (Digital Twin) ---------- */
+:root{ --sc-wall-a:#f4efe4; --sc-wall-b:#e9e1cf; --sc-floor:#e6e1d6; --sc-tile:#d6cfc0; --sc-base:#b9ad94; --sc-wood:#a77b4f; --sc-woodtop:#c89a67; --sc-chair:#3f6fb5; --sc-chair2:#5a87c9; --sc-frame:#7c8794; --sc-screen:#24303f; --sc-board:#121722; --sc-band:#1b2a5c; --sc-sign:#ffffff; --sc-ink:#1f2a44; }
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){ --sc-wall-a:#2a2e38; --sc-wall-b:#23272f; --sc-floor:#2b2a28; --sc-tile:#36342f; --sc-base:#4a4538; --sc-wood:#6e5134; --sc-woodtop:#8a6844; --sc-chair:#2f5594; --sc-chair2:#3e67a8; --sc-frame:#5d6672; --sc-screen:#0f141c; --sc-board:#0a0d14; --sc-band:#22346e; --sc-sign:#e9edf5; --sc-ink:#1f2a44; } }
+:root[data-theme="dark"]{ --sc-wall-a:#2a2e38; --sc-wall-b:#23272f; --sc-floor:#2b2a28; --sc-tile:#36342f; --sc-base:#4a4538; --sc-wood:#6e5134; --sc-woodtop:#8a6844; --sc-chair:#2f5594; --sc-chair2:#3e67a8; --sc-frame:#5d6672; --sc-screen:#0f141c; --sc-board:#0a0d14; --sc-band:#22346e; --sc-sign:#e9edf5; }
+.scene-card{gap:12px}
+.scene-head{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.scene-wrap{overflow-x:auto;border-radius:12px;border:1px solid var(--line);-webkit-overflow-scrolling:touch}
+svg.scene{display:block;width:100%;min-width:660px;height:auto;background:var(--sc-wall-b);font-family:var(--f-body)}
+.scene-foot{display:flex;gap:8px 16px;flex-wrap:wrap;align-items:center;justify-content:space-between}
+.scene-foot .legend i{border-radius:50%}
+.sc-wall-a{stop-color:var(--sc-wall-a)}.sc-wall-b{stop-color:var(--sc-wall-b)}
+.sc-floor{fill:var(--sc-floor)} .sc-tile path{stroke:var(--sc-tile);stroke-width:1.2;fill:none} .sc-base{fill:var(--sc-base)}
+.sc-wood{fill:var(--sc-wood)} .sc-woodtop{fill:var(--sc-woodtop)} .sc-chair{fill:var(--sc-chair)} .sc-chair2{fill:var(--sc-chair2)} .sc-leg{stroke:#6b7280;stroke-width:2.4;stroke-linecap:round}
+.sc-frame{fill:var(--sc-frame)} .sc-glass{stroke:#9fb6c8;stroke-width:1} .sc-door{fill:#8b6a48;stroke:#6e5134;stroke-width:2}
+.sc-screen{fill:var(--sc-screen)} .sc-metal{fill:#9aa3ad} .sc-paper{fill:#fbfbf8} .sc-kiosk{fill:#e9eef5;stroke:#9aa3ad;stroke-width:1.2}
+.sc-band{fill:var(--sc-band)} .sc-title{font-family:var(--f-display);font-size:19px;font-weight:700;fill:#fff} .sc-sub{font-size:11px;fill:#c9d2ea}
+.sc-clock{fill:#fff;stroke:#c9a65a;stroke-width:2.4} .sc-tick{stroke:#1f2a44;stroke-width:1.6} .sc-hand{stroke:#1f2a44;stroke-width:2.6;stroke-linecap:round} .sc-hand.thin{stroke-width:1.6} .sc-pin{fill:#c9a65a}
+.sc-sign{fill:var(--sc-sign);stroke:#d7dbe3;stroke-width:1} .sc-st{font-size:12px;font-weight:700;fill:var(--sc-ink)} .sc-st.sm{font-size:10.5px} .sc-sub2{font-size:10px;fill:#5a6378} .sc-no{font-family:var(--f-data);font-size:20px;font-weight:700;fill:#fff}
+.sc-led-bg{fill:#10151f} .sc-led{font-family:var(--f-data);font-size:11px;font-weight:700;fill:#ffd166;letter-spacing:.5px}
+.sc-board{fill:var(--sc-board);stroke:#39404f;stroke-width:3} .sc-board-h{font-size:11px;font-weight:700;fill:#9fb3d9} .sc-board-l{font-family:var(--f-data);font-size:11px;fill:#cbd5e1} .sc-board-v{font-family:var(--f-data);font-size:12px;font-weight:700;fill:#5ef08a;letter-spacing:.5px}
+.sc-exit{fill:#0b7a3b} .sc-exit-t{font-size:11px;font-weight:700;fill:#fff} .sc-door-t{font-size:9px;fill:#1f2a44}
+.sc-pot{fill:#9a6b4a} .sc-plant{fill:#4f8a4a} .sc-rack rect:first-child{fill:#8d939b}
+.sc-zone{font-size:12px;font-weight:600;fill:#6b6455} :root[data-theme="dark"] .sc-zone{fill:#a8a08d}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .sc-zone{fill:#a8a08d} }
+.sc-glasswall{fill:none;stroke:#9fc3dc;stroke-width:4;opacity:.8}
+.sc-ring{fill:#06c755} .sc-ring-t{font-size:10.5px;font-weight:700;fill:#fff}
+#ph-ring{animation:ring 1.2s ease-in-out infinite}
+@keyframes ring{0%,100%{opacity:1}50%{opacity:.55}}
+.pp{cursor:pointer}
+.pp .sh,.staff-p .sh{fill:rgba(0,0,0,.18)}
+.pp .tg rect{stroke:#fff;stroke-width:1.5}
+.pp .tg text{font-family:var(--f-data);font-size:10px;font-weight:700;fill:#fff}
+.pp .bb path{fill:#fff;stroke:#c9ced8;stroke-width:1}
+.pp .bb text{font-size:10px;font-weight:600;fill:#1f2a44}
+.pp.focus{filter:drop-shadow(0 0 3px #f2b705) drop-shadow(0 0 6px #f2b705)}
+.tw-focus{border:1px solid color-mix(in srgb,var(--brass) 45%,var(--line));background:var(--brass-soft);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:10px}
+.tw-focus .q{display:inline-block;color:#fff;border-radius:999px;padding:1px 10px;font-family:var(--f-data);font-size:.86rem}
+.tw-focus .kv b{font-size:.95rem;font-family:var(--f-body)}
+.mob-only{display:none}
+@media (max-width:700px){.mob-only{display:inline}}
+.counters.big{grid-template-columns:repeat(auto-fit,minmax(min(100%,110px),1fr))}
+.counters.big div{background:var(--surface);border:1px solid var(--line)}
+.counters b small{font-size:.72rem;font-weight:500;color:var(--muted)}
 @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
@@ -2415,7 +2459,7 @@ function bind(){
       case 'ov-map': S.ovTab = 'map'; setView('overview'); break;
       case 'ov-tab': S.ovTab = val; if (val !== 'map') twStop(); renderOverview(); break;
       case 'filter': S.filter = val; renderOverview(); break;
-      case 'twin-sel': S.twinSel = val; renderOverview(); break;
+      case 'twin-sel': S.twinSel = val; TW.focus = null; if (S.view === 'overview' && S.ovTab === 'map') renderOverview(); else { S.ovTab = 'map'; setView('overview'); } break;
       case 'step-go': await goStep(val); break;
       case 'copy-link': { const link = S.group.appLink || location.href; try { await navigator.clipboard.writeText(link); toast('คัดลอกลิงก์แล้ว'); } catch (e){ toast('ลิงก์ระบบ: ' + link); } break; }
       case 'save': saveEntry(null); break;
@@ -2551,7 +2595,7 @@ const CH = [
 ];
 const OUT = [ { id:'done', t:'ยุติ/เสร็จสิ้น' }, { id:'refer', t:'ส่งต่อหน่วยงานอื่น' }, { id:'pending', t:'ระหว่างดำเนินการ' } ];
 const OPEN_MIN = 510, CLOSE_MIN = 990, DAY_END = 1080;
-const TW = { mode:null, auto:true, speed:1, playing:true, aSim:null, aReal:0, raf:0, refs:null, origins:{}, lastStats:0, frame:0, metric:'none', evKey:'', events:[], scrubbing:false };
+const TW = { mode:null, auto:true, speed:1, playing:true, aSim:null, aReal:0, raf:0, refs:null, origins:{}, lastStats:0, frame:0, metric:'none', evKey:'', events:[], scrubbing:false, focus:null, schedKey:'', scheds:{} };
 const isRemote = ch => ch === 'phone' || ch === 'online';
 const isWalk = ch => ch === 'walk' || ch === 'cjc';
 const svcOf = id => SVC.find(x => x.id === id) || SVC[4];
@@ -2576,6 +2620,7 @@ function realEvents(){
   return out.sort((a, b) => a.min - b.min);
 }
 const gauss = R => (R() + R() + R() - 1.5) / 1.5;
+const CONTACTS_PER_CASE = 3.5;
 function synthEvents(dk){
   const res = [], g = S.group, Y = g.years, last = Y[Y.length - 1];
   g.members.forEach(code => {
@@ -2584,7 +2629,8 @@ function synthEvents(dk){
     let tot = Object.values(w).reduce((a, b) => a + b, 0);
     if (!tot){ Object.assign(w, { consult:300, fund:40, comp:60, med:80, help:120 }); tot = 600; }
     const R = seededRand(h32(code + dk));
-    const n = Math.max(2, Math.round(tot / 245 * (0.8 + R() * 0.5)));
+    // each case brings people to the office several times (file, submit documents, follow up, hear the result)
+    const n = Math.max(4, Math.round(tot * CONTACTS_PER_CASE / 245 * (0.8 + R() * 0.5)));
     const types = o.legal.top.filter(t => t.type).map(t => t.type);
     const pr = o.proactive[last] || {}, resolve = num(pr.r) ? num(pr.d) / num(pr.r) : 0.75;
     const mt = num(o.medAct.total) + num(o.medOther.total), medOk = mt ? (num(o.medAct.ok) + num(o.medOther.ok)) / mt : 0.7;
@@ -2614,39 +2660,9 @@ function twEvents(){
 function twSet(simMin, speed, playing){ TW.aSim = simMin; TW.aReal = performance.now(); if (speed != null) TW.speed = speed; if (playing != null) TW.playing = playing; }
 function twNow(){ if (TW.aSim == null) twToNow(); return TW.playing ? TW.aSim + (performance.now() - TW.aReal) / 60000 * TW.speed : TW.aSim; }
 function twToNow(){ const n = nowMin(); if (TW.mode === 'sim' && (n < OPEN_MIN || n > CLOSE_MIN)) twSet(560, 60, true); else twSet(n, 1, true); }
-const walkW = () => reducedMotion() ? 0.0005 : Math.max(0.03, 2.2 * TW.speed / 60);
+const walkW = () => reducedMotion() ? 0.02 : Math.min(1.6, Math.max(0.06, 5 * TW.speed / 60));
 const mapW = () => Math.max(0.05, 3.2 * TW.speed / 60);
 
-// ---------- floor plan geometry (viewBox 0 0 360 236) ----------
-const FL = {
-  doorOut:[46, 236], doorIn:[46, 198], referOut:[318, 236], referIn:[318, 198], hall:196, corridor:168,
-  intake:i => [34 + (i % 7) * 11, 148 + Math.floor(i / 7) * 13],
-  remote:i => [34 + (i % 7) * 11, 64 + Math.floor(i / 7) * 13],
-  laneY:k => 24 + k * 34,
-  seat:(k, j) => j === 0 ? [292, 24 + k * 34 + 14] : [268 - (j - 1) * 11, 24 + k * 34 + 14]
-};
-function floorStatic(){
-  const lanes = SVC.map((s, k) => { const y = FL.laneY(k);
-    return `<text class="zl" x="186" y="${y + 6}">${esc(s.short)}</text>
-      <rect class="desk" x="302" y="${y + 3}" width="20" height="20" rx="2"/>
-      <g class="staff" transform="translate(333 ${y + 15})"><circle r="2.6" cy="-3.8"/><path d="M-3.2 3.2Q0-2 3.2 3.2Z"/></g>
-      ${[1, 2, 3, 4].map(j => { const [x, yy] = FL.seat(k, j); return `<rect class="chair" x="${x - 3.5}" y="${yy + 2}" width="7" height="3" rx="1"/>`; }).join('')}
-      <rect class="chair" x="288.5" y="${y + 16}" width="7" height="3" rx="1"/>
-      <circle cx="312" cy="${y + 13}" r="2" fill="var(${s.c})"/>`; }).join('');
-  return `<rect class="room" x="10" y="10" width="340" height="204" rx="6"/>
-    <path class="wall" d="M30 214H10V10H350V214H334M62 214H302"/>
-    <path class="door" d="M30 214Q30 200 46 198M62 214Q62 200 46 198"/><path class="door" d="M302 214Q302 202 318 199M334 214Q334 202 318 199"/>
-    <text class="zl c" x="46" y="231">ทางเข้า-ออก</text><text class="zl c" x="318" y="231">ส่งต่อหน่วยงาน</text>
-    <text class="zl" x="24" y="27">โทรศัพท์ / ออนไลน์ / LINE</text>
-    <rect class="desk" x="24" y="31" width="90" height="10" rx="2"/>
-    <g class="staff" transform="translate(48 25)"><circle r="2.4" cy="-3.6"/></g><g class="staff" transform="translate(90 25)"><circle r="2.4" cy="-3.6"/></g>
-    <text class="zl" x="24" y="111">จุดรับเรื่อง / คัดกรอง</text>
-    <rect class="desk" x="24" y="115" width="90" height="10" rx="2"/>
-    <g class="staff" transform="translate(48 110)"><circle r="2.4" cy="-3.6"/></g><g class="staff" transform="translate(90 110)"><circle r="2.4" cy="-3.6"/></g>
-    <path class="aisle" d="M168 20V196M46 196H318"/>
-    
-    ${lanes}`;
-}
 function along(pts, f){
   f = Math.max(0, Math.min(1, f));
   const seg = []; let L = 0;
@@ -2655,29 +2671,11 @@ function along(pts, f){
   for (let i = 0; i < seg.length; i++){ if (t <= seg[i] || i === seg.length - 1){ const k = seg[i] ? Math.min(1, t / seg[i]) : 1; return [pts[i][0] + (pts[i + 1][0] - pts[i][0]) * k, pts[i][1] + (pts[i + 1][1] - pts[i][1]) * k]; } t -= seg[i]; }
   return pts[pts.length - 1];
 }
-// where every person of one office is at sim time s
-function floorState(s, evs, code){
-  const W = walkW(), out = [];
-  const list = evs.filter(e => e.office === code);
-  const walkers = list.filter(e => isWalk(e.ch)).map(e => { const t1 = e.min, t2 = t1 + e.intake, t3 = t2 + W, t4 = t3 + e.dur; return { e, t0:t1 - W, t1, t2, t3, t4, t5:t4 + W }; });
-  const active = walkers.filter(p => s >= p.t0 && s < p.t5);
-  const atIntake = active.filter(p => s < p.t2).sort((a, b) => a.t1 - b.t1);
-  const deskQ = {}; SVC.forEach(v => deskQ[v.id] = active.filter(p => p.e.svc === v.id && s >= p.t2 && s < p.t4).sort((a, b) => a.t3 - b.t3));
-  active.forEach(p => {
-    const k = SVC.findIndex(v => v.id === p.e.svc), iq = atIntake.indexOf(p), jd = deskQ[p.e.svc].indexOf(p);
-    const slotI = FL.intake(Math.max(0, iq)), slotD = FL.seat(k, Math.min(4, Math.max(0, jd)));
-    let pos, ph;
-    if (s < p.t1){ ph = 'in'; pos = along([FL.doorOut, FL.doorIn, [FL.doorIn[0], slotI[1]], slotI], (s - p.t0) / W); }
-    else if (s < p.t2){ ph = 'intake'; pos = slotI; }
-    else if (s < p.t3){ ph = 'walk'; pos = along([slotI, [FL.corridor, slotI[1]], [FL.corridor, slotD[1]], slotD], (s - p.t2) / W); }
-    else if (s < p.t4){ ph = 'desk'; pos = slotD; }
-    else { ph = 'out'; const ex = p.e.out === 'refer' ? [FL.referIn, FL.referOut] : [FL.doorIn, FL.doorOut];
-      pos = along([slotD, [FL.corridor, slotD[1]], [FL.corridor, FL.hall], [ex[0][0], FL.hall], ex[1]], (s - p.t4) / W); }
-    out.push({ id:p.e.id, x:pos[0], y:pos[1], svc:p.e.svc, ph, remote:false });
-  });
-  const remotes = list.filter(e => isRemote(e.ch) && s >= e.min && s < e.min + e.dur).sort((a, b) => a.min - b.min);
-  remotes.forEach((e, i) => { const [x, y] = FL.remote(i); out.push({ id:e.id, x, y, svc:e.svc, ph:'remote', remote:true }); });
-  return { people: out, inside: active.length, list, walkers };
+// schedules for every office (cached until the events or the walking speed change)
+function sceneScheds(evs){
+  const W = walkW(), key = TW.evKey + '|' + W.toFixed(4) + '|' + evs.length;
+  if (TW.schedKey !== key){ TW.schedKey = key; TW.scheds = {}; S.group.members.forEach(c => TW.scheds[c] = sceneSchedule(evs, c, W)); }
+  return TW.scheds;
 }
 
 // ---------- render ----------
@@ -2716,10 +2714,22 @@ function renderTwin(el){
       <div class="row"><button class="btn sm" data-act="tw-play" id="tw-play">${TW.playing ? 'หยุดชั่วคราว' : 'เล่นต่อ'}</button><button class="btn sm" data-act="tw-replay">เล่นทั้งวัน (ประมาณ 2 นาที)</button><button class="btn sm ghost" data-act="tw-now">เวลาปัจจุบัน</button></div>
       <input type="range" class="tw-scrub" id="tw-scrub" min="480" max="${DAY_END}" step="1" aria-label="เลื่อนเวลา">
     </div>
-    ${TW.mode === 'sim' ? `<div class="notice demo"><b>โหมดจำลอง</b><span class="grow">การเคลื่อนไหวสร้างจากสถิติรายปีของแต่ละสำนักงาน เพื่อให้เห็นภาพการให้บริการในหนึ่งวัน ไม่ใช่ผู้มารับบริการจริง</span></div>`
-      : !realCount ? `<div class="notice info"><span class="grow">ยังไม่มีการบันทึกผู้มารับบริการวันนี้ เจ้าหน้าที่กด “บันทึกผู้มารับบริการ” เมื่อมีผู้มาติดต่อ แล้วการเคลื่อนไหวจะขึ้นบนแผนที่ทันทีในทุกเครื่อง</span>${canLog ? `<button class="btn primary sm" data-act="visit-new" data-v="${S.twinSel}">${I.plus}บันทึกผู้มารับบริการ</button>` : ''}</div>` : ''}
+    ${TW.mode === 'sim' ? `<div class="notice demo"><b>โหมดจำลอง</b><span class="grow">ผู้มารับบริการในภาพสร้างจากสถิติรายปีของแต่ละสำนักงาน (ประมาณ ${CONTACTS_PER_CASE} ครั้งที่มาติดต่อต่อ 1 เรื่อง เช่น ยื่นเรื่อง ส่งเอกสาร ติดตามผล) เพื่อให้เห็นการให้บริการในหนึ่งวัน ไม่ใช่บุคคลจริง และไม่มีข้อมูลส่วนบุคคล</span></div>`
+      : !realCount ? `<div class="notice info"><span class="grow">ยังไม่มีการบันทึกผู้มารับบริการวันนี้ เจ้าหน้าที่กด “บันทึกผู้มารับบริการ” เมื่อมีผู้มาติดต่อ แล้วจะเห็นผู้มารับบริการเดินเข้าสำนักงานทันทีในทุกเครื่อง</span>${canLog ? `<button class="btn primary sm" data-act="visit-new" data-v="${S.twinSel}">${I.plus}บันทึกผู้มารับบริการ</button>` : ''}</div>` : ''}
+    <div class="card scene-card">
+      <div class="scene-head"><div class="chips" role="group" aria-label="เลือกสำนักงาน">${M.map(c => `<button class="chip" data-act="twin-sel" data-v="${c}" aria-pressed="${c === S.twinSel}"><i class="sw" style="background:${colorVar(c)}"></i>สยจ.${esc(nm(c))}</button>`).join('')}</div>
+        ${canLog ? `<button class="btn primary sm" data-act="visit-new" data-v="${S.twinSel}">${I.plus}บันทึกผู้มารับบริการ</button>` : ''}</div>
+      <div class="scene-wrap"><svg class="scene" id="tw-scene" viewBox="0 0 960 540" role="img" aria-label="ภาพจำลองการให้บริการภายในสำนักงานยุติธรรมจังหวัด${esc(nm(S.twinSel))}">${sceneStatic(S.twinSel)}<g id="tw-pp"></g></svg></div>
+      <div class="scene-foot"><div class="legend">${SVC.map(s => `<span><i style="background:var(${s.c})"></i>${QLETTER[s.id]} · ${esc(s.short)}</span>`).join('')}</div><span class="small">แตะที่ผู้มารับบริการเพื่อดูรายละเอียด<span class="mob-only"> · เลื่อนภาพซ้าย–ขวาเพื่อดูทั้งสำนักงาน</span></span></div>
+      <div id="tw-focus" class="tw-focus" hidden></div>
+    </div>
+    <div class="counters big" id="tw-count"></div>
+    <div class="cols">
+      <div class="card"><h2>ผู้มารับบริการรายชั่วโมง <small id="tw-hour-t">สยจ.${esc(nm(S.twinSel))}</small></h2><svg id="tw-hours" viewBox="0 0 300 120" class="hours" role="img" aria-label="จำนวนผู้มารับบริการรายชั่วโมง"></svg></div>
+      <div class="card"><h2>ล่าสุด <small>ไม่มีข้อมูลส่วนบุคคล</small></h2><ul class="feed" id="tw-feed"></ul></div>
+    </div>
     <div class="twin">
-      <div class="map-wrap" id="tw-map"><svg id="twin-svg" viewBox="198 374 192 250" role="img" aria-label="แผนที่การเคลื่อนไหวของผู้มารับบริการ">
+      <div class="map-wrap" id="tw-map"><svg id="twin-svg" viewBox="198 374 192 250" role="img" aria-label="แผนที่การเดินทางมารับบริการของทั้งกลุ่มจังหวัด">
           <defs><filter id="land-sh" x="-5%" y="-5%" width="110%" height="110%"><feDropShadow dx="0" dy=".6" stdDeviation=".7" flood-color="#000" flood-opacity=".18"/></filter></defs>
           <g filter="url(#land-sh)">${paths}</g>${ctxLabels}
           <text class="lbl sea" x="236" y="595">อ่าวไทย</text><text class="lbl sea" x="372" y="512">กัมพูชา</text>
@@ -2731,26 +2741,15 @@ function renderTwin(el){
           ${met ? `<div class="ramp">${ramp.map(r => `<i style="background:var(${r})"></i>`).join('')}</div><div class="ramp-l"><span>${esc(fmtMetric(met, lo))}</span><span>${esc(fmtMetric(met, hi))}</span></div>` : ''}
           <span class="small" style="font-size:.68rem">ขอบเขตจังหวัด: @svg-maps/thailand (CC BY 4.0)</span></div>
       </div>
-      <div class="card">
-        <div class="row" style="justify-content:space-between"><h2 style="margin:0">ภายในสำนักงาน</h2>
-          <label class="visually-hidden" for="tw-office">เลือกสำนักงาน</label><select id="tw-office" class="btn sm">${M.map(c => `<option value="${c}" ${c === S.twinSel ? 'selected' : ''}>สยจ.${esc(nm(c))}</option>`).join('')}</select></div>
-        <svg class="floor" id="tw-floor" viewBox="0 0 360 236" role="img" aria-label="ผังสำนักงานและผู้มารับบริการ">${floorStatic()}<g id="tw-people"></g></svg>
-        <div class="counters" id="tw-count"></div>
-        ${canLog ? `<button class="btn primary" data-act="visit-new" data-v="${S.twinSel}">${I.plus}บันทึกผู้มารับบริการ</button>` : ''}
-      </div>
-    </div>
-    <div class="cols">
-      <div class="card"><h2>ผู้มารับบริการรายชั่วโมง <small id="tw-hour-t">สยจ.${esc(nm(S.twinSel))}</small></h2><svg id="tw-hours" viewBox="0 0 300 120" class="hours" role="img" aria-label="จำนวนผู้มารับบริการรายชั่วโมง"></svg></div>
-      <div class="card"><h2>ล่าสุด <small>ไม่มีข้อมูลส่วนบุคคล</small></h2><ul class="feed" id="tw-feed"></ul></div>
-      <div class="card"><h2>ทั้งกลุ่มจังหวัดวันนี้</h2><div id="tw-group"></div></div>
+      <div class="card"><h2>ทั้งกลุ่มจังหวัดวันนี้ <small>แตะจังหวัดบนแผนที่เพื่อดูภายในสำนักงาน</small></h2><div id="tw-group"></div></div>
     </div>
     <details class="more" id="sim-det"><summary>ทดลองจำลองภาระงานทั้งปี (What-if)</summary><div class="in"><div class="sim-grid"><div style="display:flex;flex-direction:column;gap:12px">
       <label class="fld"><span>สำนักงาน</span><select id="sim-office">${['all', ...M].map(c => `<option value="${c}" ${S.sim.office === c ? 'selected' : ''}>${c === 'all' ? 'ทั้งกลุ่มจังหวัด' : 'สยจ.' + esc(nm(c))}</option>`).join('')}</select></label>
       <div class="rng"><label for="sim-in">เรื่องเข้าใหม่เปลี่ยนไป <output id="o-in">${S.sim.dIn > 0 ? '+' : ''}${S.sim.dIn}%</output></label><input type="range" id="sim-in" min="-50" max="100" step="5" value="${S.sim.dIn}"></div>
       <div class="rng"><label for="sim-cap">กำลังคน/เครือข่ายเปลี่ยนไป <output id="o-cap">${S.sim.dCap > 0 ? '+' : ''}${S.sim.dCap}%</output></label><input type="range" id="sim-cap" min="-50" max="100" step="5" value="${S.sim.dCap}"></div>
       <div class="sim-out" id="sim-out"></div></div><div class="chart-box tall"><canvas id="c-sim" role="img" aria-label="กราฟคาดการณ์เรื่องค้างรายเดือน"></canvas></div></div></div></details>`;
-  TW.refs = { map: $('#twin-svg'), parts: $('#tw-parts'), people: $('#tw-people'), count: $('#tw-count'), hours: $('#tw-hours'), feed: $('#tw-feed'), group: $('#tw-group'), time: $('#tw-time'), status: $('#tw-status'), scrub: $('#tw-scrub'),
-    pEls: new Map(), fEls: new Map() };
+  TW.refs = { map: $('#twin-svg'), parts: $('#tw-parts'), scene: $('#tw-scene'), pp: $('#tw-pp'), count: $('#tw-count'), hours: $('#tw-hours'), feed: $('#tw-feed'), group: $('#tw-group'), time: $('#tw-time'), status: $('#tw-status'), scrub: $('#tw-scrub'), focus: $('#tw-focus'),
+    pEls: new Map(), sEls: new Map(), lastT: performance.now() };
   const det = $('#sim-det'); det.addEventListener('toggle', () => { if (det.open) renderSim(); });
   computeOrigins();
   TW.lastStats = 0; twFrame(true); twStart();
@@ -2786,19 +2785,13 @@ function twStart(){
 function twStop(){ cancelAnimationFrame(TW.raf); TW.raf = 0; }
 const NS = 'http://www.w3.org/2000/svg';
 function mkEl(tag, attrs){ const el = document.createElementNS(NS, tag); for (const k in attrs) el.setAttribute(k, attrs[k]); return el; }
-function personEl(svc, remote){
-  const g = mkEl('g', { class:'person' + (remote ? ' remote' : '') });
-  const col = `var(${svcOf(svc).c})`;
-  g.appendChild(mkEl('circle', { r:'2.7', cy:'-3.9', fill: remote ? 'var(--surface)' : col, stroke: col, 'stroke-width': remote ? '1.1' : '.5' }));
-  g.appendChild(mkEl('path', { d:'M-3.3 3.3Q0-2 3.3 3.3Z', fill: remote ? 'var(--surface)' : col, stroke: col, 'stroke-width': remote ? '1.1' : '.5' }));
-  return g;
-}
 function twFrame(force){
   const R = TW.refs; if (!R) return;
   let s = twNow();
   if (TW.playing && s >= DAY_END){ twSet(DAY_END, null, false); s = DAY_END; const pb = $('#tw-play'); if (pb) pb.textContent = 'เล่นต่อ'; }
   TW.frame++;
-  const evs = twEvents(), shape = Object.fromEntries(MAP_SHAPES.map(x => [x.id, x]));
+  const now = performance.now(), dt = Math.min(0.1, (now - R.lastT) / 1000); R.lastT = now;
+  const evs = twEvents(), shape = Object.fromEntries(MAP_SHAPES.map(x => [x.id, x])), scheds = sceneScheds(evs);
   // ---- map particles ----
   if (!reducedMotion()){
     const mW = mapW();
@@ -2822,36 +2815,76 @@ function twFrame(force){
   }
   for (const [k, el] of R.pEls){ if (el._seen !== TW.frame){ el.remove(); R.pEls.delete(k); } }
   // ---- per-office inside counts + glow ----
-  const W = walkW(), insideBy = {};
-  S.group.members.forEach(c => insideBy[c] = 0);
-  evs.forEach(e => { if (isWalk(e.ch)){ const t5 = e.min + e.intake + W + e.dur + W; if (s >= e.min - W && s < t5) insideBy[e.office]++; } });
-  S.group.members.forEach(c => { const gEl = document.getElementById('og-' + c), b = document.getElementById('ob-' + c); const n = insideBy[c];
-    if (gEl) gEl.setAttribute('r', n ? (4 + Math.min(10, n * 1.6) + Math.sin(performance.now() / 500) * 0.6).toFixed(2) : '0');
+  const insideBy = {};
+  S.group.members.forEach(c => { insideBy[c] = (scheds[c] || []).filter(p => s >= p.tIn0 && s < p.tGone).length;
+    const gEl = document.getElementById('og-' + c), b = document.getElementById('ob-' + c), n = insideBy[c];
+    if (gEl) gEl.setAttribute('r', n ? (4 + Math.min(10, n * 1.6) + Math.sin(now / 500) * 0.6).toFixed(2) : '0');
     if (b){ const t = n ? `${n} คน` : ''; if (b.textContent !== t) b.textContent = t; } });
-  // ---- floor ----
-  const st = floorState(s, evs, S.twinSel);
-  st.people.forEach(p => {
-    let el = R.fEls.get(p.id);
-    if (!el){ el = personEl(p.svc, p.remote); R.people.appendChild(el); R.fEls.set(p.id, el); }
-    el.setAttribute('transform', `translate(${p.x.toFixed(2)} ${p.y.toFixed(2)}) scale(1.3)`);
-    el._seen = TW.frame;
+  // ---- people inside the selected office ----
+  const plans = scheds[S.twinSel] || [], people = scenePeople(s, plans);
+  people.forEach(p => {
+    let P = R.sEls.get(p.id);
+    if (!P){ P = scenePersonEl(p.L); P.g.dataset.act = 'tw-focus'; P.g.dataset.v = p.plan.id; P.g.setAttribute('aria-label', `${p.plan.q || ''} ${svcOf(p.svc).t}`); R.pp.appendChild(P.g); R.sEls.set(p.id, P); P.rx = p.x; P.ry = p.y; }
+    const far = Math.hypot(p.x - P.rx, p.y - P.ry) > 70;
+    if (far || p.pose === 'walk'){ P.rx = p.x; P.ry = p.y; } else { const k = Math.min(1, dt * 9); P.rx += (p.x - P.rx) * k; P.ry += (p.y - P.ry) * k; }
+    const glide = !far && Math.hypot(p.x - P.rx, p.y - P.ry) > 1.2;
+    scenePose(P, glide ? 'walk' : p.pose, now);
+    sceneLabel(P, p.tag, p.bub, p.svc);
+    P.g.setAttribute('transform', `translate(${P.rx.toFixed(1)} ${P.ry.toFixed(1)}) scale(${depth(P.ry).toFixed(3)})`);
+    const op = Math.max(0, Math.min(1, p.alpha)).toFixed(2); if (P.op !== op){ P.op = op; P.g.setAttribute('opacity', op); }
+    const foc = TW.focus === p.plan.id; if (P.foc !== foc){ P.foc = foc; P.g.classList.toggle('focus', foc); }
+    P.y = P.ry; P._seen = TW.frame;
   });
-  for (const [k, el] of R.fEls){ if (el._seen !== TW.frame){ el.remove(); R.fEls.delete(k); } }
+  for (const [k, P] of R.sEls){ if (P._seen !== TW.frame){ P.g.remove(); R.sEls.delete(k); } }
   // ---- clock & stats (throttled) ----
-  if (force || performance.now() - TW.lastStats > 280){ TW.lastStats = performance.now(); twStats(s, evs, st, insideBy); }
+  if (force || now - TW.lastStats > 280){
+    TW.lastStats = now;
+    [...R.sEls.values()].sort((a, b) => a.y - b.y).forEach(P => R.pp.appendChild(P.g));
+    twStats(s, evs, plans, people, insideBy);
+  }
 }
-function twStats(s, evs, st, insideBy){
+function twStats(s, evs, plans, people, insideBy){
   const R = TW.refs, open = s >= OPEN_MIN && s < CLOSE_MIN;
   R.time.textContent = hhmm(s) + ' น.';
   R.status.innerHTML = `<span class="pill ${open ? 'good' : 'idle'}">${open ? 'เวลาราชการ' : 'นอกเวลาราชการ'}</span>${TW.speed > 1 && TW.playing ? ` <span class="pill brand">เร่ง ${TW.speed} เท่า</span>` : ''}${!TW.playing ? ' <span class="pill idle">หยุดอยู่</span>' : ''}`;
   if (!TW.scrubbing) R.scrub.value = Math.min(DAY_END, Math.max(480, s));
-  const mine = st.list, arrived = mine.filter(e => e.min <= s);
-  const W = walkW(), finished = mine.filter(e => (isWalk(e.ch) ? e.min + e.intake + W + e.dur + W : e.min + e.dur) <= s);
+  // scene details: wall clock, lights, queue board, phone desk
+  const hA = ((s / 60) % 12) * 30, mA = (s % 60) * 6, set = (id, a) => { const el = document.getElementById(id); if (el) el.setAttribute('transform', `rotate(${a.toFixed(1)})`); };
+  set('wc-h', hA); set('wc-m', mA);
+  const dim = document.getElementById('sc-dim'); if (dim) dim.setAttribute('opacity', open ? '0' : s < OPEN_MIN - 30 || s > CLOSE_MIN + 30 ? '0.38' : '0.2');
+  ['consult', 'fund', 'comp', 'help', 'med'].forEach(c => {
+    const cur = plans.find(p => p.ctr === c && s >= p.tCall && s < p.tEnd), waitN = plans.filter(p => p.ctr === c && s >= p.tRecEnd && s < p.tCall).length;
+    const qb = document.getElementById('qb-' + c); if (qb) qb.textContent = cur ? cur.q + (waitN ? `  · รอ ${waitN}` : '') : waitN ? `รอ ${waitN}` : '–';
+    const cs = document.getElementById('cs-' + c); if (cs) cs.textContent = cur ? cur.q : '–';
+  });
+  const mine = evs.filter(e => e.office === S.twinSel), arrived = mine.filter(e => e.min <= s);
+  const remoteNow = mine.filter(e => isRemote(e.ch) && s >= e.min && s < e.min + e.dur).length;
+  const ring = document.getElementById('ph-ring'); if (ring){ ring.style.display = remoteNow ? '' : 'none'; const t = document.getElementById('ph-n'); if (t) t.textContent = `กำลังคุย ${remoteNow} สาย`; }
+  const waiting = plans.filter(p => (s >= p.tIn1 && s < p.tRec) || (s >= p.tRecEnd && s < p.tCall)).length;
+  const serving = plans.filter(p => s >= p.tRec && s < p.tEnd && !(s >= p.tRecEnd && s < p.tCall)).length;
+  const called = plans.filter(p => p.tCall <= s), avgW = called.length ? called.reduce((a, p) => a + p.waited, 0) / called.length : null;
+  const finished = mine.filter(e => { const p = plans.find(x => x.id === e.id); return p ? p.tGone <= s : e.min + e.dur <= s; });
   const cnt = k => finished.filter(e => e.out === k).length;
   R.count.innerHTML = [
-    ['มาวันนี้', arrived.length], ['อยู่ในสำนักงาน', st.inside], ['ทางโทรศัพท์/ออนไลน์', arrived.filter(e => isRemote(e.ch)).length],
-    ['ลงพื้นที่', arrived.filter(e => e.ch === 'mobile').length], ['ยุติแล้ว', cnt('done')], ['ส่งต่อ', cnt('refer')], ['ระหว่างดำเนินการ', cnt('pending')]
-  ].map(([l, v]) => `<div><b>${v}</b><span>${l}</span></div>`).join('');
+    ['มาวันนี้', arrived.length, 'คน'], ['อยู่ในสำนักงาน', insideBy[S.twinSel] || 0, 'คน'], ['รอคิว', waiting, 'คน'], ['กำลังรับบริการ', serving, 'คน'],
+    ['รอเฉลี่ย', avgW == null ? '–' : Math.round(avgW), 'นาที'], ['โทรศัพท์/ออนไลน์', arrived.filter(e => isRemote(e.ch)).length, 'ราย'], ['ลงพื้นที่', arrived.filter(e => e.ch === 'mobile').length, 'ราย'],
+    ['ยุติแล้ว', cnt('done'), 'ราย'], ['ส่งต่อ', cnt('refer'), 'ราย'], ['นัดต่อ/ดำเนินการ', cnt('pending'), 'ราย']
+  ].map(([l, v, u]) => `<div><b>${v}<small> ${u}</small></b><span>${l}</span></div>`).join('');
+  // focus card
+  if (R.focus){
+    const fp = TW.focus && plans.find(p => p.id === TW.focus), live = fp && people.find(p => p.id === fp.id);
+    if (!fp){ R.focus.hidden = true; }
+    else {
+      R.focus.hidden = false;
+      const e = fp.e, st = live ? live.state : s < fp.tIn0 ? `จะมาถึงเวลา ${hhmm(fp.tIn0)} น.` : 'ออกจากสำนักงานแล้ว';
+      const html = `<div class="row" style="justify-content:space-between;align-items:flex-start"><div><b class="q" style="background:var(${svcOf(e.svc).c})">${esc(fp.q || '')}</b> <b>${esc(svcOf(e.svc).t)}</b>${e.cs ? ` · ${esc(e.cs)}` : ''}</div><button class="btn sm ghost" data-act="tw-focus" data-v="">ปิด</button></div>
+        <div class="kv"><div><span>สถานะตอนนี้</span><b>${esc(st)}</b></div><div><span>มาถึง</span><b>${hhmm(fp.tIn0)} น. · ${esc((CH.find(c => c.id === e.ch) || CH[0]).t)}</b></div>
+          <div><span>เวลารอ</span><b>${s >= fp.tCall ? Math.round(fp.waited) + ' นาที' : s >= fp.tIn1 ? 'กำลังรอ ' + Math.round((Math.min(s, fp.tRec) - fp.tIn1) + Math.max(0, s - fp.tSeat)) + ' นาที' : '–'}</b></div>
+          <div><span>ผลที่บันทึก</span><b>${esc((OUT.find(o => o.id === e.out) || OUT[0]).t)}</b></div></div>
+        ${e.real ? '' : '<p class="small">บุคคลจำลองจากสถิติ ไม่ใช่ผู้มารับบริการจริง</p>'}`;
+      if (R.focus.dataset.sig !== html){ R.focus.dataset.sig = html; R.focus.innerHTML = html; }
+    }
+  }
   // hourly bars
   const hours = [8,9,10,11,12,13,14,15,16], byH = hours.map(h => arrived.filter(e => Math.floor(e.min / 60) === h).length), mx = Math.max(1, ...byH);
   const bw = 300 / hours.length;
@@ -2860,7 +2893,7 @@ function twStats(s, evs, st, insideBy){
   const recent = arrived.slice().sort((a, b) => b.min - a.min).slice(0, 8);
   const sig = recent.map(e => e.id).join(',');
   if (R.feed.dataset.sig !== sig){ R.feed.dataset.sig = sig;
-    R.feed.innerHTML = recent.length ? recent.map(e => `<li><i class="sw" style="background:var(${svcOf(e.svc).c})"></i><span>${esc(svcOf(e.svc).t)}${e.cs ? ' · ' + esc(e.cs) : ''}<br><span class="small">${esc((CH.find(c => c.id === e.ch) || CH[0]).t)} · ${esc((OUT.find(o => o.id === e.out) || OUT[0]).t)}</span></span><time>${hhmm(e.min)}</time></li>`).join('') : '<li class="empty" style="display:block">ยังไม่มีผู้มารับบริการถึงเวลานี้</li>'; }
+    R.feed.innerHTML = recent.length ? recent.map(e => { const p = plans.find(x => x.id === e.id); return `<li><i class="sw" style="background:var(${svcOf(e.svc).c})"></i><span>${p ? `<b>${esc(p.q)}</b> · ` : ''}${esc(svcOf(e.svc).t)}${e.cs ? ' · ' + esc(e.cs) : ''}<br><span class="small">${esc((CH.find(c => c.id === e.ch) || CH[0]).t)} · ${esc((OUT.find(o => o.id === e.out) || OUT[0]).t)}</span></span><time>${hhmm(e.min)}</time></li>`; }).join('') : '<li class="empty" style="display:block">ยังไม่มีผู้มารับบริการถึงเวลานี้</li>'; }
   // group summary
   const all = evs.filter(e => e.min <= s);
   R.group.innerHTML = `<div class="kv"><div><span>มารับบริการแล้ว</span><b>${all.length} คน</b></div><div><span>อยู่ในสำนักงานตอนนี้</span><b>${Object.values(insideBy).reduce((a, b) => a + b, 0)} คน</b></div></div>
@@ -2959,6 +2992,7 @@ function twinClick(a, val){
     case 'tw-replay': twSet(495, 300, true); renderTwinControls(); return true;
     case 'tw-now': TW.mode === 'sim' ? twToNow() : twSet(nowMin(), 1, true); renderTwinControls(); return true;
     case 'visit-new': openVisitForm(val || S.twinSel); return true;
+    case 'tw-focus': TW.focus = val || null; TW.lastStats = 0; return true;
     case 'visit-close': closeVisitForm(); return true;
   }
   return false;
@@ -2967,6 +3001,229 @@ function renderTwinControls(){
   $$('[data-act="tw-speed"]').forEach(b => b.setAttribute('aria-pressed', String(Number(b.dataset.v) === TW.speed)));
   const pb = $('#tw-play'); if (pb) pb.textContent = TW.playing ? 'หยุดชั่วคราว' : 'เล่นต่อ';
   TW.lastStats = 0;
+}
+
+// ===================== OFFICE SCENE: a provincial justice office with people =====================
+// A 2.5D cut-away of one สยจ. (viewBox 0 0 960 540). Visitors arrive at the glass door, queue at
+// reception for a ticket, wait in the seating area, are called to a counter (or the mediation room)
+// and leave by the main door or the referral door. Timing comes from a small queue simulation over
+// the day's visits (real visits logged by officers, or the labelled statistical simulation).
+const SCN = {
+  W:960, H:540, floorY:196, aisle:338,
+  door:[67, 202], doorIn:[67, 290],
+  recSpot:[[186, 292], [256, 292]], recStaff:[186, 256],
+  line:i => [112, 300 + Math.min(i, 6) * 30],
+  seat:i => [214 + (i % 6) * 50, 404 + Math.floor(i / 6) * 50], SEATS:18,
+  ctr:{ consult:560, fund:660, comp:760, help:860 },
+  ctrNo:{ consult:1, fund:2, comp:3, help:4, med:5 },
+  medA:[742, 496], medB:[858, 496], medGate:[680, 392], medTable:[800, 478],
+  refer:[930, 204], phone:[560, 470]
+};
+const QLETTER = { consult:'A', fund:'B', comp:'C', med:'D', help:'E' };
+const SIGN = { consult:'ปรึกษากฎหมาย', fund:'กองทุนยุติธรรม', comp:'เยียวยาผู้เสียหาย', help:'ร้องเรียน/ช่วยเหลือ' };
+const depth = y => 0.7 + 0.42 * Math.max(0, Math.min(1, (y - 190) / 350));
+
+// ---------- looks ----------
+const SKIN = ['#f3cfa8', '#e8b98c', '#d9a274', '#c68a5b', '#a8714a', '#8a5a3a'];
+const HAIR = ['#1d1a18', '#2b211b', '#3b2a1e', '#4a3423', '#1d1a18', '#2b211b'];
+const SHIRT = ['#f2f1ec', '#9cc3e6', '#2f4b7c', '#8c2f39', '#5f8f5a', '#e3bd5f', '#e7a1b0', '#8d939b', '#7b5ea7', '#a0785a', '#3f8f8f', '#d06a4e'];
+const PANTS = ['#2f3542', '#4b5563', '#1f2937', '#5b4636', '#3b4a6b', '#6b7280'];
+function looks(id){
+  const R = seededRand(h32('look' + id));
+  const pick = a => a[Math.floor(R() * a.length)];
+  const elder = R() < 0.18, longHair = R() < 0.45;
+  return { skin: pick(SKIN), hair: elder ? (R() < 0.5 ? '#9b9b9b' : '#c9c9c9') : pick(HAIR), style: longHair ? (R() < 0.35 ? 'bun' : 'long') : (elder && R() < 0.4 ? 'thin' : 'short'),
+    shirt: pick(SHIRT), pants: pick(PANTS), skirt: longHair && R() < 0.4 ? pick(['#2f4b7c', '#5b4636', '#3b3b3b', '#7b5ea7']) : null, glasses: elder ? R() < 0.7 : R() < 0.15, bag: R() < 0.35 ? pick(['#5b4636', '#2b2b2b', '#8c2f39']) : null, elder };
+}
+const STAFF_LOOK = (seed, female) => { const L = looks('staff' + seed); return Object.assign(L, { shirt:'#b39a63', pants:'#3a3a3a', skirt:null, bag:null, elder:false, style: female ? 'bun' : 'short', glasses: seed % 3 === 0, uniform:true }); };
+const shade = (hex, k) => { const n = parseInt(hex.slice(1), 16); const f = c => Math.max(0, Math.min(255, Math.round(c * k))); return '#' + [n >> 16, (n >> 8) & 255, n & 255].map(f).map(x => x.toString(16).padStart(2, '0')).join(''); };
+
+// one person, feet at (0,0), facing the viewer; parts carry classes so frames can animate them
+function personMarkup(L, o = {}){
+  const sk = L.skin, sh = L.shirt, shD = shade(sh, 0.82), pa = L.pants, legFill = L.skirt ? sk : pa;
+  const hairBack = L.style === 'long' ? `<path d="M-10.5 -70Q-12 -50 -9 -46L9 -46Q12 -50 10.5 -70Z" fill="${L.hair}"/>` : '';
+  const hairFront = L.style === 'thin' ? `<path d="M-9.4 -69Q-9.6 -74 -7 -75L-6 -71ZM9.4 -69Q9.6 -74 7 -75L6 -71Z" fill="${L.hair}"/>`
+    : `<path d="M-9.8 -67Q-10.5 -79 0 -80Q10.5 -79 9.8 -67Q8 -73 3 -74Q-4 -75 -9.8 -67Z" fill="${L.hair}"/>${L.style === 'bun' ? `<circle cy="-80" r="4.4" fill="${L.hair}"/>` : ''}${L.style === 'long' ? `<path d="M-9.8 -69Q-11 -60 -9.6 -54L-7.6 -55Q-8.6 -62 -7.8 -68Z M9.8 -69Q11 -60 9.6 -54L7.6 -55Q8.6 -62 7.8 -68Z" fill="${L.hair}"/>` : ''}`;
+  const face = `<circle cx="-3.2" cy="-67.5" r="1" fill="#2a211c"/><circle cx="3.2" cy="-67.5" r="1" fill="#2a211c"/><path d="M-2.4 -63.2Q0 -61.6 2.4 -63.2" stroke="#7a4b3a" stroke-width=".9" fill="none" stroke-linecap="round"/>${L.glasses ? '<g fill="none" stroke="#333" stroke-width=".7"><circle cx="-3.3" cy="-67.4" r="2.5"/><circle cx="3.3" cy="-67.4" r="2.5"/><path d="M-.8 -67.4H.8"/></g>' : ''}`;
+  const uniform = L.uniform ? `<path d="M-8 -50H-3V-45H-8Z M3 -50H8V-45H3Z" fill="${shade(sh, 0.88)}"/><rect x="3.2" y="-54.5" width="5" height="2.6" rx=".6" fill="#f4f4f2"/><path d="M-11 -57Q0 -60 11 -57" stroke="#7d6a40" stroke-width="1" fill="none"/>` : `<path d="M-3.4 -57L0 -52L3.4 -57" fill="none" stroke="${shade(sh, 0.7)}" stroke-width="1"/>`;
+  const shoe = x => `<ellipse cx="${x}" cy="-1.6" rx="4.6" ry="2.3" fill="#2b2622"/>`;
+  return `<ellipse class="sh" cx="0" cy="0" rx="13" ry="3.6"/>
+    <g class="lw"><g class="ll"><rect x="-7.6" y="-31" width="6.6" height="29" rx="3" fill="${legFill}"/>${shoe(-4.3)}</g><g class="lr"><rect x="1" y="-31" width="6.6" height="29" rx="3" fill="${legFill}"/>${shoe(4.3)}</g>
+      ${L.skirt ? `<path d="M-11 -33H11L13.5 -13H-13.5Z" fill="${L.skirt}"/>` : ''}</g>
+    <g class="ls" style="display:none"><rect x="-10" y="-23" width="20" height="10" rx="4.5" fill="${L.skirt || pa}"/><rect x="-8" y="-15" width="6.2" height="14" rx="3" fill="${legFill}"/><rect x="1.8" y="-15" width="6.2" height="14" rx="3" fill="${legFill}"/>${shoe(-4.9)}${shoe(4.9)}</g>
+    <g class="up">${hairBack}
+      <g class="al"><rect x="-15.8" y="-55" width="5.6" height="23" rx="2.8" fill="${shD}"/><circle cx="-13" cy="-31.4" r="2.7" fill="${sk}"/></g>
+      <g class="ar"><rect x="10.2" y="-55" width="5.6" height="23" rx="2.8" fill="${shD}"/><circle cx="13" cy="-31.4" r="2.7" fill="${sk}"/>${L.bag ? `<rect x="11" y="-36" width="9" height="11" rx="2" fill="${L.bag}"/><path d="M13 -36Q15.5 -42 18 -36" stroke="${L.bag}" stroke-width="1.2" fill="none"/>` : ''}</g>
+      <rect x="-11" y="-58" width="22" height="30" rx="7" fill="${sh}"/>${uniform}
+      <rect x="-2.6" y="-61" width="5.2" height="4.5" fill="${shade(sk, 0.92)}"/>
+      <circle cy="-68" r="9.2" fill="${sk}"/>${face}${hairFront}</g>
+    ${o.noTags ? '' : `<g class="tg" style="display:none"><rect x="-17" y="-104" width="34" height="15" rx="7.5"/><text x="0" y="-93" text-anchor="middle"></text></g>
+    <g class="bb" style="display:none"><path d="M6 -96h38a6 6 0 0 1 6 6v10a6 6 0 0 1-6 6H18l-6 6v-6h-6a6 6 0 0 1-6-6v-10a6 6 0 0 1 6-6z" transform="translate(4 0)"/><text x="29" y="-85" text-anchor="middle"></text></g>`}`;
+}
+function staffMarkup(x, y, seed, female, extra){
+  const L = STAFF_LOOK(seed, female);
+  return `<g class="staff-p" transform="translate(${x} ${y}) scale(${depth(y).toFixed(3)})">${personMarkup(L, { noTags:true })}${extra || ''}</g>`;
+}
+
+// ---------- static room ----------
+function sceneStatic(code){
+  const nmO = nm(code), F = SCN.floorY;
+  const VP = [480, -420];
+  const tiles = [];
+  for (let k = 1; k <= 8; k++){ const y = F + 344 * Math.pow(k / 8, 1.35); tiles.push(`<path d="M0 ${y.toFixed(1)}H960"/>`); }
+  for (let j = -1; j <= 13; j++){ const xb = -60 + j * 80, x0 = VP[0] + (xb - VP[0]) * (F - VP[1]) / (540 - VP[1]); tiles.push(`<path d="M${x0.toFixed(1)} ${F}L${xb} 540"/>`); }
+  const counter = (k, svc) => { const x = SCN.ctr[svc], s = SVC.find(v => v.id === svc), no = SCN.ctrNo[svc];
+    return `<g class="ctr-sign" transform="translate(${x} 92)"><rect x="-47" y="0" width="94" height="44" rx="6" class="sc-sign"/><rect x="-47" y="0" width="20" height="44" rx="6" fill="var(${s.c})"/><rect x="-33" y="0" width="6" height="44" fill="var(${s.c})"/>
+        <text x="-37" y="28" text-anchor="middle" class="sc-no">${no}</text><text x="10" y="16" text-anchor="middle" class="sc-st sm">${esc(SIGN[svc])}</text>
+        <rect x="-18" y="23" width="56" height="16" rx="3" class="sc-led-bg"/><text x="10" y="35.5" text-anchor="middle" class="sc-led" id="cs-${svc}">–</text></g>
+      ${staffMarkup(x, 252, k + 2, k % 2 === 1)}
+      <rect x="${x - 44}" y="236" width="88" height="10" rx="2" class="sc-woodtop"/><rect x="${x - 42}" y="246" width="84" height="28" class="sc-wood"/>
+      <rect x="${x - 26}" y="218" width="22" height="16" rx="2" class="sc-screen"/><rect x="${x - 16.5}" y="234" width="3" height="3" class="sc-metal"/>
+      <rect x="${x + 10}" y="230" width="16" height="6" rx="1" class="sc-paper"/>
+      <path d="M${x - 14} 308h28l-2 -14h-24z" class="sc-chair"/><rect x="${x - 13}" y="282" width="26" height="12" rx="4" class="sc-chair2"/>`; };
+  const seats = Array.from({ length:SCN.SEATS }, (_, i) => { const [x, y] = SCN.seat(i), d = depth(y);
+    return `<g transform="translate(${x} ${y}) scale(${d.toFixed(3)})"><rect x="-15" y="-40" width="30" height="20" rx="5" class="sc-chair2"/><rect x="-16" y="-22" width="32" height="9" rx="3.5" class="sc-chair"/><path d="M-13 -13V0M13 -13V0" class="sc-leg"/></g>`; }).join('');
+  return `<defs><linearGradient id="sc-wallg" x1="0" x2="0" y1="0" y2="1"><stop offset="0" class="sc-wall-a"/><stop offset="1" class="sc-wall-b"/></linearGradient>
+      <linearGradient id="sc-glassg" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#bfe0f5" stop-opacity=".55"/><stop offset="1" stop-color="#e8f4fb" stop-opacity=".25"/></linearGradient></defs>
+    <rect x="0" y="0" width="960" height="${F}" fill="url(#sc-wallg)"/>
+    <path d="M0 ${F}H960V540H0Z" class="sc-floor"/><g class="sc-tile">${tiles.join('')}</g>
+    <rect x="0" y="${F - 6}" width="960" height="6" class="sc-base"/>
+    <!-- sign band -->
+    <g transform="translate(330 12)"><rect width="600" height="52" rx="8" class="sc-band"/><image href="img/moj-logo.png" x="10" y="5" width="42" height="42"/>
+      <text x="62" y="25" class="sc-title">สำนักงานยุติธรรมจังหวัด${esc(nmO)}</text><text x="62" y="43" class="sc-sub">Provincial Justice Office · ศูนย์ยุติธรรมชุมชน · คลินิกยุติธรรม</text>
+      <g transform="translate(560 26)"><circle r="20" class="sc-clock"/><path d="M0 -16V-13M16 0H13M0 16V13M-16 0H-13" class="sc-tick"/><path id="wc-h" d="M0 0V-9" class="sc-hand"/><path id="wc-m" d="M0 0V-14" class="sc-hand thin"/><circle r="1.6" class="sc-pin"/></g></g>
+    <!-- entrance -->
+    <g><rect x="20" y="70" width="94" height="${F - 70}" class="sc-frame"/><rect x="25" y="75" width="41" height="${F - 75}" fill="url(#sc-glassg)" class="sc-glass"/><rect x="68" y="75" width="41" height="${F - 75}" fill="url(#sc-glassg)" class="sc-glass"/>
+      <rect x="22" y="48" width="90" height="18" rx="4" class="sc-exit"/><text x="67" y="61" text-anchor="middle" class="sc-exit-t">ทางเข้า-ออก</text>
+      <text x="67" y="${F - 18}" text-anchor="middle" class="sc-door-t">เปิด 08:30–16:30 น.</text></g>
+    <!-- reception -->
+    <g><rect x="140" y="88" width="160" height="34" rx="6" class="sc-sign"/><text x="220" y="104" text-anchor="middle" class="sc-st">ประชาสัมพันธ์ · รับบัตรคิว</text><text x="220" y="117" text-anchor="middle" class="sc-sub2">คัดกรองเรื่องและนัดหมาย</text>
+      ${staffMarkup(186, 250, 1, true)}${staffMarkup(256, 250, 7, false)}
+      <rect x="146" y="236" width="150" height="10" rx="2" class="sc-woodtop"/><rect x="148" y="246" width="146" height="26" class="sc-wood"/>
+      <rect x="164" y="220" width="18" height="14" rx="2" class="sc-screen"/><rect x="236" y="220" width="18" height="14" rx="2" class="sc-screen"/>
+      <g transform="translate(318 238)"><rect x="-11" y="-38" width="22" height="44" rx="3" class="sc-kiosk"/><rect x="-7" y="-33" width="14" height="11" rx="1.5" class="sc-screen"/><rect x="-5" y="-15" width="10" height="3" class="sc-paper"/><text x="0" y="16" text-anchor="middle" class="sc-sub2">ตู้กดบัตรคิว</text></g></g>
+    <!-- queue board -->
+    <g transform="translate(330 72)"><rect width="176" height="104" rx="6" class="sc-board"/><text x="88" y="16" text-anchor="middle" class="sc-board-h">เรียกคิว · ช่องบริการ</text>
+      ${['consult', 'fund', 'comp', 'help', 'med'].map((v, i) => `<text x="14" y="${33 + i * 15}" class="sc-board-l">ช่อง ${SCN.ctrNo[v]}</text><text x="160" y="${33 + i * 15}" text-anchor="end" class="sc-board-v" id="qb-${v}">–</text>`).join('')}</g>
+    <!-- counters -->
+    ${['consult', 'fund', 'comp', 'help'].map((v, k) => counter(k, v)).join('')}
+    <!-- referral door -->
+    <g><rect x="904" y="150" width="52" height="${F - 150}" class="sc-door"/><circle cx="912" cy="${F - 22}" r="2" class="sc-metal"/><text x="930" y="130" text-anchor="middle" class="sc-sub2">ส่งต่อ</text><text x="930" y="142" text-anchor="middle" class="sc-sub2">หน่วยงาน</text></g>
+    <!-- plants & extras -->
+    <g transform="translate(126 214)"><rect x="-9" y="-6" width="18" height="16" rx="3" class="sc-pot"/><path d="M0 -6Q-14 -30 -4 -42Q0 -26 0 -6Q2 -34 12 -40Q10 -22 0 -6" class="sc-plant"/></g>
+    <g transform="translate(608 212)" class="sc-rack"><rect x="-12" y="-30" width="24" height="40" rx="2"/><rect x="-9" y="-26" width="18" height="6" class="sc-paper"/><rect x="-9" y="-16" width="18" height="6" class="sc-paper"/><rect x="-9" y="-6" width="18" height="6" class="sc-paper"/></g>
+    <!-- waiting area -->
+    <text x="339" y="530" text-anchor="middle" class="sc-zone">ที่นั่งรอเรียกคิว</text>${seats}
+    <!-- phone / LINE desk -->
+    <g>${staffMarkup(SCN.phone[0], SCN.phone[1] + 12, 5, true, '<path d="M-11 -70Q0 -84 11 -70" stroke="#222" stroke-width="1.6" fill="none"/><path d="M-11 -70v8" stroke="#222" stroke-width="2.2"/><path d="M-11 -62q2 6 8 6" stroke="#222" stroke-width="1" fill="none"/>')}
+      <rect x="${SCN.phone[0] - 40}" y="${SCN.phone[1] - 16}" width="80" height="9" rx="2" class="sc-woodtop"/><rect x="${SCN.phone[0] - 38}" y="${SCN.phone[1] - 7}" width="76" height="26" class="sc-wood"/>
+      <rect x="${SCN.phone[0] + 12}" y="${SCN.phone[1] - 31}" width="18" height="14" rx="2" class="sc-screen"/>
+      <text x="${SCN.phone[0]}" y="${SCN.phone[1] + 38}" text-anchor="middle" class="sc-zone">สายด่วน · LINE · ออนไลน์</text>
+      <g id="ph-ring" style="display:none" transform="translate(${SCN.phone[0] + 16} ${SCN.phone[1] - 84})"><rect x="0" y="0" width="84" height="22" rx="11" class="sc-ring"/><text x="42" y="15" text-anchor="middle" class="sc-ring-t" id="ph-n"></text></g></g>
+    <!-- mediation room -->
+    <g><path d="M640 540V372H950" class="sc-glasswall"/><rect x="640" y="372" width="310" height="168" fill="url(#sc-glassg)" opacity=".35"/>
+      <rect x="652" y="356" width="148" height="22" rx="5" class="sc-sign"/><text x="726" y="371" text-anchor="middle" class="sc-st">ช่อง 5 · ห้องไกล่เกลี่ยข้อพิพาท</text>
+      ${staffMarkup(SCN.medTable[0], SCN.medTable[1] + 6, 11, false, '<rect x="-12" y="-58" width="24" height="31" rx="7" fill="#2f3c5c" opacity=".92"/><path d="M-3 -57L0 -45L3 -57Z" fill="#f2f1ec"/>')}
+      <ellipse cx="${SCN.medTable[0]}" cy="${SCN.medTable[1]}" rx="64" ry="18" class="sc-woodtop"/><path d="M${SCN.medTable[0] - 64} ${SCN.medTable[1]}v6a64 18 0 0 0 128 0v-6" class="sc-wood"/>
+      <rect x="${SCN.medTable[0] - 12}" y="${SCN.medTable[1] - 8}" width="24" height="9" rx="1" class="sc-paper"/></g>
+    <rect id="sc-dim" x="0" y="0" width="960" height="540" fill="#0b1020" opacity="0" pointer-events="none"/>`;
+}
+
+// ---------- queue simulation for one office ----------
+const pathLen = pts => { let L = 0; for (let i = 1; i < pts.length; i++) L += Math.hypot(pts[i][0] - pts[i - 1][0], pts[i][1] - pts[i - 1][1]); return L; };
+function sceneSchedule(evs, code, W){
+  const walk = pts => Math.max(0.25, pathLen(pts) / 520) * W;
+  const list = evs.filter(e => e.office === code && isWalk(e.ch)).sort((a, b) => a.min - b.min);
+  const rec = [OPEN_MIN - 30, OPEN_MIN - 30], ctrFree = { consult:0, fund:0, comp:0, help:0, med:0 };
+  const plans = list.map(e => {
+    const R = seededRand(h32('q' + e.id));
+    const tIn0 = e.min, tIn1 = tIn0 + walk([SCN.door, SCN.doorIn, SCN.line(0)]);
+    const k = rec[0] <= rec[1] ? 0 : 1, tRec = Math.max(tIn1, rec[k]) + 0.4 * W, recDur = 2 + R() * 3.5, tRecEnd = tRec + recDur;
+    rec[k] = tRecEnd;
+    return { e, id:e.id, L: looks(e.id), tIn0, tIn1, recK:k, tRec, tRecEnd, recDur, ctr: e.svc === 'med' ? 'med' : (SCN.ctr[e.svc] ? e.svc : 'help') };
+  });
+  // tickets in the order people leave reception
+  const seqN = {}; plans.slice().sort((a, b) => a.tRecEnd - b.tRecEnd).forEach(p => { seqN[p.ctr] = (seqN[p.ctr] || 0) + 1; p.q = QLETTER[p.e.svc === 'med' ? 'med' : p.ctr] + String(seqN[p.ctr]).padStart(3, '0'); });
+  // seats
+  const seatFree = Array(SCN.SEATS).fill(-1);
+  plans.slice().sort((a, b) => a.tRecEnd - b.tRecEnd).forEach(p => {
+    let idx = seatFree.findIndex(t => t <= p.tRecEnd);
+    if (idx < 0) idx = seatFree.indexOf(Math.min(...seatFree));
+    p.seat = idx; const sp = SCN.seat(idx), rs = SCN.recSpot[p.recK];
+    p.pSeat = [rs, [rs[0], SCN.aisle], [sp[0], SCN.aisle], sp];
+    p.tSeat = p.tRecEnd + walk(p.pSeat);
+    const dest = p.ctr === 'med' ? SCN.medA : [SCN.ctr[p.ctr], 300];
+    p.pCall = p.ctr === 'med' ? [sp, [sp[0], SCN.aisle], [SCN.medGate[0], SCN.aisle], SCN.medGate, SCN.medA] : [sp, [sp[0], SCN.aisle], [dest[0], SCN.aisle], dest];
+    p.tCall = Math.max(p.tSeat, ctrFree[p.ctr]);
+    p.tServe = p.tCall + walk(p.pCall);
+    p.tEnd = p.tServe + p.e.dur;
+    ctrFree[p.ctr] = p.tEnd + 0.5 * W;
+    seatFree[idx] = p.tCall;
+    const back = p.ctr === 'med' ? [SCN.medA, SCN.medGate, [SCN.medGate[0], SCN.aisle]] : [dest, [dest[0], SCN.aisle]];
+    p.pOut = p.e.out === 'refer' ? [...back, [SCN.refer[0], SCN.aisle], SCN.refer] : [...back, [SCN.doorIn[0], SCN.aisle], SCN.doorIn, SCN.door];
+    p.tGone = p.tEnd + walk(p.pOut);
+    p.waited = (p.tRec - p.tIn1) + (p.tCall - p.tSeat);
+    if (p.ctr === 'med'){ // the other party is summoned and joins at the table
+      const pin = [SCN.door, SCN.doorIn, [SCN.doorIn[0], SCN.aisle], [SCN.medGate[0], SCN.aisle], SCN.medGate, SCN.medB];
+      p.party = { id: p.id + '-b', L: looks(p.id + '-b'), pIn: pin, t0: p.tServe - walk(pin), pOut: [SCN.medB, SCN.medGate, [SCN.medGate[0], SCN.aisle], [SCN.doorIn[0], SCN.aisle], SCN.doorIn, SCN.door] };
+      p.party.tGone = p.tEnd + walk(p.party.pOut);
+    }
+    return p;
+  });
+  return plans.sort((a, b) => a.tIn0 - b.tIn0);
+}
+const OUT_BUBBLE = { done:'ยุติแล้ว', refer:'ส่งต่อ', pending:'นัดต่อ' };
+// where every visitor is at time s
+function scenePeople(s, plans){
+  const out = [];
+  const inLine = plans.filter(p => s >= p.tIn1 && s < p.tRec).sort((a, b) => a.tIn1 - b.tIn1);
+  const fade = (t, a, b) => Math.max(0, Math.min(1, (t - a) / Math.max(1e-6, b - a)));
+  plans.forEach(p => {
+    if (s < p.tIn0 || s >= p.tGone) return;
+    let pos, pose = 'stand', tag = null, bub = null, state, alpha = 1, moving = false;
+    if (s < p.tIn1){ const i = Math.max(0, inLine.length); pos = along([SCN.door, SCN.doorIn, SCN.line(i)], fade(s, p.tIn0, p.tIn1)); moving = true; alpha = Math.min(1, fade(s, p.tIn0, p.tIn0 + (p.tIn1 - p.tIn0) * 0.25) + 0.05); state = 'กำลังเข้าสำนักงาน'; }
+    else if (s < p.tRec){ const i = inLine.indexOf(p); pos = SCN.line(i); state = `ต่อแถวรับบัตรคิว (ลำดับที่ ${i + 1})`; }
+    else if (s < p.tRec + 0.0001 + (p.tRecEnd - p.tRec) * 0.12){ pos = along([SCN.line(0), SCN.recSpot[p.recK]], fade(s, p.tRec, p.tRec + (p.tRecEnd - p.tRec) * 0.12)); moving = true; state = 'ไปที่จุดประชาสัมพันธ์'; }
+    else if (s < p.tRecEnd){ pos = SCN.recSpot[p.recK]; bub = 'คัดกรอง'; state = 'คัดกรองเรื่องและรับบัตรคิว'; }
+    else if (s < p.tSeat){ pos = along(p.pSeat, fade(s, p.tRecEnd, p.tSeat)); moving = true; tag = p.q; state = 'เดินไปที่นั่งรอ'; }
+    else if (s < p.tCall){ pos = SCN.seat(p.seat); pose = 'sit'; tag = p.q; state = `รอเรียกคิว ${Math.round(s - p.tSeat)} นาที`; }
+    else if (s < p.tServe){ pos = along(p.pCall, fade(s, p.tCall, p.tServe)); moving = true; tag = p.q; state = p.ctr === 'med' ? 'เดินไปห้องไกล่เกลี่ย' : `ถูกเรียกไปช่อง ${SCN.ctrNo[p.ctr]}`; }
+    else if (s < p.tEnd){ pos = p.ctr === 'med' ? SCN.medA : [SCN.ctr[p.ctr], 300]; pose = 'sit'; bub = '…'; state = p.ctr === 'med' ? 'กำลังไกล่เกลี่ย' : `กำลังรับบริการที่ช่อง ${SCN.ctrNo[p.ctr]}`; }
+    else { pos = along(p.pOut, fade(s, p.tEnd, p.tGone)); moving = true; bub = OUT_BUBBLE[p.e.out] || null; state = p.e.out === 'refer' ? 'ส่งต่อหน่วยงานอื่น' : 'กลับบ้าน'; const f = fade(s, p.tEnd, p.tGone); alpha = f > 0.85 ? (1 - f) / 0.15 : 1; }
+    out.push({ id:p.id, plan:p, L:p.L, x:pos[0], y:pos[1], pose: moving ? 'walk' : pose, tag, bub, state, alpha, svc:p.e.svc });
+    const b = p.party;
+    if (b && s >= b.t0 && s < b.tGone){
+      let bp, bpose = 'walk', bal = 1;
+      if (s < p.tServe) bp = along(b.pIn, fade(s, b.t0, p.tServe));
+      else if (s < p.tEnd){ bp = SCN.medB; bpose = 'sit'; }
+      else { const f = fade(s, p.tEnd, b.tGone); bp = along(b.pOut, f); bal = f > 0.85 ? (1 - f) / 0.15 : 1; }
+      out.push({ id:b.id, plan:p, party:true, L:b.L, x:bp[0], y:bp[1], pose:bpose, tag:null, bub:null, state:'คู่กรณีในการไกล่เกลี่ย', alpha:bal, svc:'med' });
+    }
+  });
+  return out;
+}
+
+// ---------- DOM ----------
+function scenePersonEl(L){
+  const g = mkEl('g', { class:'pp' });
+  g.innerHTML = personMarkup(L);
+  const q = c => g.querySelector('.' + c);
+  return { g, lw:q('lw'), ls:q('ls'), ll:q('ll'), lr:q('lr'), up:q('up'), al:q('al'), ar:q('ar'), tg:q('tg'), tgT:g.querySelector('.tg text'), tgR:g.querySelector('.tg rect'), bb:q('bb'), bbT:g.querySelector('.bb text'), pose:null, tag:null, bub:null, rx:null, ry:null, ph:Math.random() * 6 };
+}
+function scenePose(P, pose, t){
+  if (P.pose !== pose){ P.pose = pose; const sit = pose === 'sit'; P.lw.style.display = sit ? 'none' : ''; P.ls.style.display = sit ? '' : 'none'; P.up.setAttribute('transform', sit ? 'translate(0 9)' : ''); if (pose !== 'walk'){ P.ll.removeAttribute('transform'); P.lr.removeAttribute('transform'); P.al.removeAttribute('transform'); P.ar.removeAttribute('transform'); } }
+  if (pose === 'walk' && !reducedMotion()){
+    const ph = t / 1000 * Math.PI * 2 * 1.7 + P.ph, sn = Math.sin(ph);
+    P.ll.setAttribute('transform', `translate(0 ${(-Math.max(0, sn) * 3.4).toFixed(2)})`);
+    P.lr.setAttribute('transform', `translate(0 ${(-Math.max(0, -sn) * 3.4).toFixed(2)})`);
+    P.al.setAttribute('transform', `rotate(${(sn * 15).toFixed(1)} -13 -54)`);
+    P.ar.setAttribute('transform', `rotate(${(-sn * 15).toFixed(1)} 13 -54)`);
+    P.up.setAttribute('transform', `translate(0 ${(-Math.abs(Math.cos(ph)) * 1.3).toFixed(2)})`);
+  }
+}
+function sceneLabel(P, tag, bub, svc){
+  if (P.tag !== tag){ P.tag = tag; P.tg.style.display = tag ? '' : 'none'; if (tag){ P.tgT.textContent = tag; P.tgR.setAttribute('fill', `var(${svcOf(svc).c})`); } }
+  if (P.bub !== bub){ P.bub = bub; P.bb.style.display = bub ? '' : 'none'; if (bub) P.bbT.textContent = bub; }
 }
 
 // ===================== MEETING DECK (PowerPoint via PptxGenJS) =====================
@@ -3325,13 +3582,14 @@ function buildManual(ctx){
   H1('7. ภาพรวมและ Digital Twin');
   H2('7.1 ตัวเลขและกราฟ');
   P('แสดงตัวเลขสำคัญ 8 ตัว รวมความครบถ้วนของข้อมูล กราฟเรื่องช่วยเหลือเชิงรุกรายปี และผลการไกล่เกลี่ย กดชื่อสำนักงานด้านบนเพื่อดูเฉพาะสำนักงาน และกด “ดูกราฟและตารางเพิ่มเติม” เพื่อดูกองทุนยุติธรรม เงินเยียวยา ศยช. มาตรฐานงานบริการ งบประมาณ และความเคลื่อนไหวล่าสุด', { first:true });
-  H2('7.2 แผนที่ Digital Twin');
+  H2('7.2 Digital Twin: ภาพจำลองการให้บริการในสำนักงาน');
   steps([
-    'แผนที่แสดงทุก สยจ. ในกลุ่ม จุดสีวิ่งจากพื้นที่เข้าสู่สำนักงานคือผู้มาติดต่อ วงกลมโปร่งคือการติดต่อทางโทรศัพท์/ออนไลน์ สี่เหลี่ยมวิ่งออกคือการลงพื้นที่ สีของจุดบอกประเภทบริการ',
-    'ผังภายในสำนักงานด้านขวาแสดงผู้มารับบริการเดินจากประตู ไปจุดรับเรื่อง ไปโต๊ะบริการ แล้วออกทางประตูหลักหรือประตูส่งต่อหน่วยงาน',
-    'เลือกดู “ข้อมูลจริงวันนี้” (จากการบันทึกผู้มารับบริการ) หรือ “จำลองจากสถิติ” (สร้างจากสถิติรายปี มีป้ายกำกับ ไม่ใช่ข้อมูลจริง)',
-    'ปรับความเร็ว เวลาจริง / 60 เท่า / 300 เท่า กด “เล่นทั้งวัน” เพื่อดูทั้งวันในเวลาประมาณ 2 นาที หรือเลื่อนแถบเวลาเพื่อย้อนดู',
-    'เมนู “ทดลองจำลองภาระงานทั้งปี” ใช้ประเมินเรื่องค้างเมื่อเรื่องเข้าหรือกำลังคนเปลี่ยนไป'
+    'เลือกสำนักงานจากปุ่มด้านบนของภาพ ภาพแสดงภายในสำนักงานยุติธรรมจังหวัด มีประตูทางเข้า จุดประชาสัมพันธ์และตู้กดบัตรคิว ที่นั่งรอ ช่องบริการ 1–4 ห้องไกล่เกลี่ย (ช่อง 5) โต๊ะสายด่วน/LINE และประตูส่งต่อหน่วยงาน เจ้าหน้าที่ในภาพสวมชุดกากี',
+    'ผู้มารับบริการเดินเข้าทางประตู ต่อแถวที่จุดประชาสัมพันธ์เพื่อคัดกรองและรับบัตรคิว นั่งรอ เมื่อถูกเรียกจะเดินไปช่องบริการหรือห้องไกล่เกลี่ย (คู่กรณีจะเดินเข้ามาร่วมโต๊ะ) แล้วกลับทางประตูหลัก หรือออกทางประตูส่งต่อหน่วยงานถ้าต้องส่งต่อ',
+    'ป้ายเรียกคิวบนผนังแสดงเลขคิวที่กำลังรับบริการและจำนวนที่รอของแต่ละช่อง ตัวอักษรหน้าเลขคิวบอกประเภทบริการ: A ปรึกษากฎหมาย B กองทุนยุติธรรม C เยียวยาผู้เสียหาย/จำเลย D ไกล่เกลี่ย E ร้องเรียน/ช่วยเหลือ',
+    'แตะที่ผู้มารับบริการเพื่อดูเลขคิว บริการ ประเภทเรื่อง เวลามาถึง เวลารอ สถานะตอนนี้ และผลที่บันทึก ตัวเลขใต้ภาพบอกจำนวนที่รอคิว กำลังรับบริการ เวลารอเฉลี่ย และผลการให้บริการของวันนั้น',
+    'เลือกดู “ข้อมูลจริงวันนี้” (จากการบันทึกผู้มารับบริการ) หรือ “จำลองจากสถิติ” (สร้างจากสถิติรายปี ประมาณ 3.5 ครั้งที่มาติดต่อต่อ 1 เรื่อง มีป้ายกำกับ ไม่ใช่บุคคลจริง) ปรับความเร็ว เวลาจริง / 60 เท่า / 300 เท่า หรือกด “เล่นทั้งวัน” ภาพจะมืดลงนอกเวลาราชการ',
+    'แผนที่ด้านล่างแสดงการเดินทางมารับบริการของทั้งกลุ่มจังหวัด แตะจังหวัดเพื่อดูภายในสำนักงานนั้น และเมนู “ทดลองจำลองภาระงานทั้งปี” ใช้ประเมินเรื่องค้างเมื่อเรื่องเข้าหรือกำลังคนเปลี่ยนไป'
   ]);
 
   H1('8. การดาวน์โหลดรายงาน สไลด์ และฐานข้อมูล');
